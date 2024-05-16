@@ -16,9 +16,33 @@ export class ApartmentsService {
     return await this.apartmentRepo.save(apartment);
   }
 
-  async findAll() {
-    const apartments = await this.apartmentRepo.query('SELECT * from apartment');
+  async findAll(roomsCount: number, price: 'asc' | 'desc') {
+    let apartments: Apartment[] = await this.apartmentRepo.query(
+      'SELECT * from apartment',
+    );
+
+    if (roomsCount) {
+      apartments = apartments.filter(
+        (apartment) => apartment.rooms == roomsCount,
+      );
+    }
+
+    if (price == 'asc') {
+      apartments = apartments.sort((a, b) => a.price - b.price);
+    } else if (price == 'desc') {
+      apartments = apartments = apartments.sort((a, b) => b.price - a.price);
+    } else {}
+
     return apartments;
+  }
+
+  async findApartmentsByRooms(roomsAmount: number): Promise<Apartment[]> {
+    const apartments = await this.apartmentRepo.findBy({ rooms: roomsAmount });
+    return apartments;
+  }
+
+  async sortApartmentsByPrice(apartments: Apartment[]) {
+    return apartments.sort((a, b) => a.price - b.price);
   }
 
   async findOne(id: string): Promise<Apartment[]> {
@@ -26,7 +50,10 @@ export class ApartmentsService {
     return apartment;
   }
 
-  async update(id: string, updateApartmentDto: UpdateApartmentDto): Promise<Apartment[]> {
+  async update(
+    id: string,
+    updateApartmentDto: UpdateApartmentDto,
+  ): Promise<Apartment[]> {
     await this.apartmentRepo.update(id, updateApartmentDto);
     const apartment = await this.apartmentRepo.findBy({ id: id });
     return apartment;

@@ -9,10 +9,12 @@ import {
   UsePipes,
   ValidationPipe,
   NotFoundException,
+  Query,
 } from '@nestjs/common';
 import { ApartmentsService } from './apartments.service';
 import { CreateApartmentDto } from './dto/create-apartment.dto';
 import { UpdateApartmentDto } from './dto/update-apartment.dto';
+import { GetApartmentsDto } from './dto/get-apartments.dto';
 
 @Controller('apartments')
 export class ApartmentsController {
@@ -23,14 +25,15 @@ export class ApartmentsController {
   async create(@Body() createApartmentDto: CreateApartmentDto) {
     return await this.apartmentsService.create(createApartmentDto);
   }
+
+  @Get()
+  async findAll(@Query() query: GetApartmentsDto) {
+    return await this.apartmentsService.findAll(query.rooms, query.price);
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: string) {
     return await this.apartmentsService.findOne(id);
-  }
-
-  @Get()
-  async findAll() {
-    return await this.apartmentsService.findAll();
   }
 
   @Put(':id')
