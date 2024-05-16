@@ -10,6 +10,7 @@ import {
   ValidationPipe,
   NotFoundException,
   Query,
+  ParseUUIDPipe,
 } from '@nestjs/common';
 import { ApartmentsService } from './apartments.service';
 import { CreateApartmentDto } from './dto/create-apartment.dto';
@@ -31,9 +32,9 @@ export class ApartmentsController {
     return await this.apartmentsService.findAll(query.rooms, query.price);
   }
 
-  @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return await this.apartmentsService.findOne(id);
+  @Get(':uuid')
+  async findOne(@Param('uuid', new ParseUUIDPipe()) uuid: string) {
+    return await this.apartmentsService.findOne(uuid);
   }
 
   @Put(':id')

@@ -45,8 +45,8 @@ export class ApartmentsService {
     return apartments.sort((a, b) => a.price - b.price);
   }
 
-  async findOne(id: string): Promise<Apartment[]> {
-    const apartment = await this.apartmentRepo.findBy({ id: id });
+  async findOne(uuid: string): Promise<Apartment[]> {
+    const apartment = await this.apartmentRepo.findBy({ id: uuid });
     return apartment;
   }
 
