@@ -6,8 +6,6 @@ import {
   Put,
   Param,
   Delete,
-  UsePipes,
-  ValidationPipe,
   NotFoundException,
   Query,
   ParseUUIDPipe,
@@ -22,7 +20,6 @@ export class ApartmentsController {
   constructor(private readonly apartmentsService: ApartmentsService) {}
 
   @Post()
-  @UsePipes(new ValidationPipe())
   async create(@Body() createApartmentDto: CreateApartmentDto) {
     return await this.apartmentsService.create(createApartmentDto);
   }

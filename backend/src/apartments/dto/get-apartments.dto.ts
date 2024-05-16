@@ -1,10 +1,10 @@
 import { Type } from 'class-transformer';
-import { IsNumber, IsOptional, IsEnum, Min } from 'class-validator';
+import { IsOptional, IsEnum, Min, IsInt } from 'class-validator';
 
 export class GetApartmentsDto {
   @IsOptional()
   @Type(() => Number)
-  @IsNumber()
+  @IsInt()
   @Min(1)
   rooms: number;
 

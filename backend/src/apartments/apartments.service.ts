@@ -23,15 +23,15 @@ export class ApartmentsService {
 
     if (roomsCount) {
       apartments = apartments.filter(
-        (apartment) => apartment.rooms == roomsCount,
+        (apartment) => apartment.rooms === roomsCount,
       );
     }
 
-    if (price == 'asc') {
+    if (price === 'asc') {
       apartments = apartments.sort((a, b) => a.price - b.price);
-    } else if (price == 'desc') {
+    } else if (price === 'desc') {
       apartments = apartments = apartments.sort((a, b) => b.price - a.price);
-    } else {}
+    }
 
     return apartments;
   }
