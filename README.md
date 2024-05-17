@@ -1,7 +1,6 @@
 # Admin-panel
 
 ## Getting started
----
 
 ### Backend
 
@@ -12,12 +11,12 @@
 1. **Clone project:**
 
 ```shell
-git clone https://github.com/andriihalai/admin-panel.git
+git clone git@github.com:andriihalai/admin-panel.git
 ```
 
 2. **Change directory into backend:**
 ```shell
-cd backend
+cd admin-panel/backend
 ```
 
 3. **Install all dependencies:**
