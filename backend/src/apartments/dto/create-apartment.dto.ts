@@ -1,11 +1,8 @@
 import {
   IsInt,
-  IsNumber,
   IsString,
   MaxLength,
   IsPositive,
-  IsOptional,
-  IsUUID,
 } from 'class-validator';
 
 export class CreateApartmentDto {
@@ -13,7 +10,7 @@ export class CreateApartmentDto {
   @IsPositive()
   rooms: number;
 
-  @IsNumber()
+  @IsInt()
   @IsPositive()
   price: number;
 
