@@ -25,7 +25,7 @@ cd backend
 npm install
 ```
 
-4. **Set up environment variables:**
+4. **Set up environment variables.**
   Create a ```.env``` file and add proper environmental variables:
 
   ```shell
@@ -73,6 +73,7 @@ http://localhost:8000/apartments?price=asc&&rooms=3
 ```
 
 - ```GET``` Get apartment by id
+**Note: apartment's id is an uuid**
 ```
 http://localhost:8000/apartments/228880ff-0fb9-48d2-99d2-744003fe211a
 ```
@@ -87,7 +88,7 @@ http://localhost:8000/apartments
 {
   "rooms": 3,
   "name": "Lorem ipsum dolor sit amet",
-  "price": 999.99,
+  "price": 950,
   "description": "Lorem ipsum dolor ipsum."
 }
 ```
@@ -102,11 +103,11 @@ http://localhost:8000/apartments/228880ff-0fb9-48d2-99d2-744003fe211a
 http://localhost:8000/apartments/084f0bb5-d7b1-4f94-bbc8-f18097fe366b
 ```
 **Body ```json```**
-```
+```json
 {
   "rooms": 1,
   "name": "ligula eget dolor",
-  "price": 642.1,
+  "price": 642,
   "description": "temeritas dolor vulticulus traho vado vetus annus strues terra adficio absorbeo sustineo arma"
 }
 ```
