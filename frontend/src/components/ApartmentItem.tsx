@@ -1,6 +1,8 @@
 import "./../style/ApartmentItem.css";
+import axios from "axios";
 
 interface IApartmentItem {
+  id: string;
   name: string;
   rooms: number;
   price: number;
@@ -8,11 +10,16 @@ interface IApartmentItem {
 }
 
 export default function ApartmentItem({
+  id,
   name,
   rooms,
   price,
   description,
 }: IApartmentItem) {
+  const handleDelete = (e: any) => {
+    axios.delete(`http://localhost:8000/apartments/${id}`);
+  };
+
   return (
     <div className="apartment-item">
       <div className="apartment-details">
@@ -28,7 +35,9 @@ export default function ApartmentItem({
           </>
         )}
       </div>
-      <button className="btn">Delete</button>
+      <button className="btn" onClick={handleDelete}>
+        Delete
+      </button>
     </div>
   );
 }

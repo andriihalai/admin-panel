@@ -1,15 +1,15 @@
 import FilterForm from "./FilterForm";
 import ApartmentsList from "./ApartmentsList";
 import "./../style/AvailableApartments.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 
 export default function AvailableApartments() {
   const [apartments, setApartments] = useState([]);
 
-  const handleSubmit = (apartments: any) => {
-    setApartments(() => apartments);
-  };
+  const handleSubmit = useCallback((apartments: any) => {
+    setApartments(apartments);
+  }, []);
 
   useEffect(() => {
     axios
@@ -17,7 +17,7 @@ export default function AvailableApartments() {
       .then((response) => setApartments(response.data))
       .catch((error) => console.error("Error fetching apartments:", error));
   }, []);
-
+  
   return (
     <>
       <div className="apartments-list-container">

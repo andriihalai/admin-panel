@@ -34,11 +34,11 @@ export default function FilterForm({ handleSubmit }: IFilterForm) {
   }, [rooms, priceOrder, handleSubmit]);
 
   const handleRoomsChange = (e: any) => {
-    setRooms(() => e.target.value);
+    setRooms(e.target.value);
   };
 
   const handlePriceOrderChange = (e: any) => {
-    setPriceOrder(() => e.target.value);
+    setPriceOrder(e.target.value);
   };
 
   return (
