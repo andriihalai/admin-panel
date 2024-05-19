@@ -7,6 +7,7 @@ interface IApartmentItem {
   rooms: number;
   price: number;
   description?: string;
+  fetchApartments: Function;
 }
 
 export default function ApartmentItem({
@@ -15,9 +16,11 @@ export default function ApartmentItem({
   rooms,
   price,
   description,
+  fetchApartments,
 }: IApartmentItem) {
-  const handleDelete = (e: any) => {
-    axios.delete(`http://localhost:8000/apartments/${id}`);
+  const handleDelete = async (e: any) => {
+    await axios.delete(`http://localhost:8000/apartments/${id}`);
+    await fetchApartments();
   };
 
   return (

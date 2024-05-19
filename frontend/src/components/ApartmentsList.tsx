@@ -12,13 +12,15 @@ interface Apartment {
 
 interface Props {
   apartments: Apartment[]; // Specify the type directly
+  fetchApartments: Function;
 }
 
-export default function ApartmentsList({ apartments }: Props) {
+export default function ApartmentsList({ apartments, fetchApartments }: Props) {
   return (
     <div className="apartment-list">
       {apartments.map((apartment) => (
         <ApartmentItem
+          fetchApartments={fetchApartments}
           key={uuidv4()}
           id={apartment.id}
           name={apartment.name}
