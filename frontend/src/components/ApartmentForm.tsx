@@ -5,7 +5,11 @@ import ErrorMessage from "./ErrorMessage";
 import axios from "axios";
 import { object, string, number, ValidationError } from "yup";
 
-export default function ApartmentForm() {
+interface IApartmentForm {
+  fetchApartments: Function;
+}
+
+export default function ApartmentForm({ fetchApartments }: IApartmentForm) {
   const [formData, setFormData] = useState({
     rooms: 0,
     name: "",
@@ -39,6 +43,7 @@ export default function ApartmentForm() {
       });
       setError("");
       await axios.post("http://localhost:8000/apartments", formData);
+      fetchApartments();
 
       setFormData({
         rooms: 0,
@@ -100,7 +105,9 @@ export default function ApartmentForm() {
           handleInput={handleInput}
           maxLength={998}
         />
-        <button className="create-apartment-btn" type="submit">Submit rent</button>
+        <button className="create-apartment-btn" type="submit">
+          Submit rent
+        </button>
       </form>
       {{ error } && <ErrorMessage message={error} />}
     </>

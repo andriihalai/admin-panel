@@ -4,8 +4,18 @@ import "./../style/AvailableApartments.css";
 import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 
-export default function AvailableApartments() {
-  const [apartments, setApartments] = useState([]);
+interface IAvailableApartments {
+  apartments: any;
+  setApartments: Function;
+  fetchApartments: Function;
+}
+
+export default function AvailableApartments({
+  apartments,
+  setApartments,
+  fetchApartments,
+}: IAvailableApartments) {
+  // const [apartments, setApartments] = useState([]);
 
   const handleSubmit = useCallback((apartments: any) => {
     setApartments(apartments);
@@ -15,12 +25,12 @@ export default function AvailableApartments() {
     fetchApartments();
   }, []);
 
-  const fetchApartments = () => {
-    axios
-      .get("http://localhost:8000/apartments")
-      .then((response) => setApartments(response.data))
-      .catch((error) => console.error("Error fetching apartments:", error));
-  };
+  // const fetchApartments = () => {
+  //   axios
+  //     .get("http://localhost:8000/apartments")
+  //     .then((response) => setApartments(response.data))
+  //     .catch((error) => console.error("Error fetching apartments:", error));
+  // };
 
   return (
     <>
@@ -28,7 +38,10 @@ export default function AvailableApartments() {
         <h2>&#127969; Available Apartments ({apartments.length})</h2>
         <FilterForm handleSubmit={handleSubmit} />
       </div>
-      <ApartmentsList apartments={apartments} fetchApartments={fetchApartments}/>
+      <ApartmentsList
+        apartments={apartments}
+        fetchApartments={fetchApartments}
+      />
     </>
   );
 }
