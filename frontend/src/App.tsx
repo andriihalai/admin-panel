@@ -1,6 +1,6 @@
-import React from 'react';
-import './App.css';
-import ApartmentForm from './components/ApartmentForm';
+import React from "react";
+import "./App.css";
+import ApartmentForm from "./components/ApartmentForm";
 
 function App() {
   return (
@@ -20,12 +20,12 @@ function App() {
             name="price"
             className="apartment-sort-option"
             id="price-sort-dropdown"
+            defaultValue=""
+            // onChange={}
           >
             <option value="asc">Lowest first</option>
             <option value="desc">Highest first</option>
-            <option value="" selected>
-              None
-            </option>
+            <option value="">None</option>
           </select>
         </form>
       </div>
