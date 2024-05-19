@@ -1,0 +1,48 @@
+label {
+  width: max-content;
+  display: block;
+  margin-bottom: 0.2em;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+.apartment-form {
+  background-color: #e6e6eb;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0.1em solid #e0e1e5;
+  border-radius: 0.1em;
+  outline: 0.1em solid #e4e6e6;
+}
+
+.form-fieldset {
+  box-sizing: border-box;
+  width: min-content;
+  border: none;
+  margin: 1em 1em 0 1em;
+}
+
+.form-input {
+  padding: 0.7em;
+  outline: 0.1em solid #e4e4e8;
+  border: 0.1em solid #eeefef;
+  border-radius: 0.3em;
+  margin-bottom: 1.2em;
+}
+
+button {
+  margin: auto;
+  margin-right: 1em;
+  margin-bottom: 1.2em;
+  background-color: #4eb997;
+  color: #ffffff;
+  width: max-content;
+  height: min-content;
+  outline: 0.1em solid #cfe1e0;
+  border: 0.1em solid #82cfbf;
+  border-radius: 0.3em;
+  padding: 0.7em;
+}
