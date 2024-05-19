@@ -33,7 +33,7 @@ label:hover {
   margin-bottom: 1.2em;
 }
 
-button {
+.create-apartment-btn {
   margin: auto 1.2em 1.2em 1.2em;
   background-color: #4eb997;
   color: #ffffff;
@@ -43,4 +43,8 @@ button {
   border: 0.1em solid #82cfbf;
   border-radius: 0.3em;
   padding: 0.7em;
+}
+
+.create-apartment-btn:hover {
+  cursor: pointer;
 }

@@ -1,0 +1,25 @@
+.apartment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: #ffffff;
+  border-radius: 0.4em;
+}
+
+.apartment-details {
+  display: inline;
+}
+
+button {
+  display: inline;
+  color: #ffffff;
+  background-color: #f1463d;
+  border: 0.1em solid #f9c6cc;
+  border-radius: 0.4em;
+  padding: 0.8em 2em 0.8em 2em;
+}
+
+button:hover {
+  cursor: pointer;
+}

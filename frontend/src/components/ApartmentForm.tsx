@@ -100,7 +100,7 @@ export default function ApartmentForm() {
           handleInput={handleInput}
           maxLength={998}
         />
-        <button type="submit">Submit rent</button>
+        <button className="create-apartment-btn" type="submit">Submit rent</button>
       </form>
       {{ error } && <ErrorMessage message={error} />}
     </>
