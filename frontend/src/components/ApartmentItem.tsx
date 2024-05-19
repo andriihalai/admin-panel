@@ -26,15 +26,23 @@ export default function ApartmentItem({
   return (
     <div className="apartment-item">
       <div className="apartment-details">
-        Name: {name}
+        <p>
+          <b>Name</b>: {name}
+        </p>
         <br />
-        Rooms: {rooms}
+        <p>
+          <b>Rooms</b>: {rooms}
+        </p>
         <br />
-        Price: {price}
+        <p>
+          <b>Price</b>: {price}$
+        </p>
         {description && (
           <>
             <br />
-            Description: {description}
+            <p>
+              <b>Description</b>: {description}
+            </p>
           </>
         )}
       </div>
