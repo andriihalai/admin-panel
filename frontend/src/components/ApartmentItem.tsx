@@ -28,7 +28,7 @@ export default function ApartmentItem({
           </>
         )}
       </div>
-      <button>Delete</button>
+      <button className="btn">Delete</button>
     </div>
   );
 }

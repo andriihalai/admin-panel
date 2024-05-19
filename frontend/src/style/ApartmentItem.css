@@ -11,7 +11,7 @@
   display: inline;
 }
 
-button {
+.btn {
   display: inline;
   color: #ffffff;
   background-color: #f1463d;
@@ -20,6 +20,6 @@ button {
   padding: 0.8em 2em 0.8em 2em;
 }
 
-button:hover {
+.btn:hover {
   cursor: pointer;
 }

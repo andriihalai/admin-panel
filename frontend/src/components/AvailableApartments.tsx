@@ -8,7 +8,7 @@ export default function AvailableApartments() {
   const [apartments, setApartments] = useState([]);
 
   const handleSubmit = (apartments: any) => {
-    setApartments(apartments);
+    setApartments(() => apartments);
   };
 
   useEffect(() => {

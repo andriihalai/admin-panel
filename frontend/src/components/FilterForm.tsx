@@ -1,8 +1,9 @@
+import { strict } from "assert";
 import axios from "axios";
-import { FormEventHandler, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface IFilterForm {
-  handleSubmit: FormEventHandler<HTMLFormElement>;
+  handleSubmit: any;
 }
 
 export default function FilterForm({ handleSubmit }: IFilterForm) {
@@ -10,12 +11,19 @@ export default function FilterForm({ handleSubmit }: IFilterForm) {
   const [priceOrder, setPriceOrder] = useState("");
 
   useEffect(() => {
+    const queryOptions = {};
+
+    if (rooms) {
+      Object.assign(queryOptions, { rooms: rooms });
+    }
+
+    if (priceOrder) {
+      Object.assign(queryOptions, { price: priceOrder });
+    }
+
     axios
       .get("http://localhost:8000/apartments", {
-        params: {
-          rooms: rooms,
-          price: priceOrder,
-        },
+        params: queryOptions,
       })
       .then((response) => {
         handleSubmit(response.data);
@@ -35,27 +43,32 @@ export default function FilterForm({ handleSubmit }: IFilterForm) {
 
   return (
     <>
-      <form className="sorting-form" onSubmit={handleSubmit}>
+      <div className="sort-options-container">
         <label htmlFor="rooms">Rooms:</label>
         <input
           type="number"
+          id="rooms"
+          name="rooms"
           className="apartment-sort-option"
           onChange={handleRoomsChange}
+          min={1}
         />
 
         <label htmlFor="price">Sort by price:</label>
-        <select
-          name="price"
-          className="apartment-sort-option"
-          id="price-sort-dropdown"
-          defaultValue=""
-          onChange={handlePriceOrderChange}
-        >
-          <option value="asc">Lowest first</option>
-          <option value="desc">Highest first</option>
-          <option value="">None</option>
-        </select>
-      </form>
+        <div className="select-container">
+          <select
+            name="price"
+            id="price"
+            className="apartment-sort-option"
+            defaultValue=""
+            onChange={handlePriceOrderChange}
+          >
+            <option value="asc">Lowest first</option>
+            <option value="desc">Highest first</option>
+            <option value="">None</option>
+          </select>
+        </div>
+      </div>
     </>
   );
 }
