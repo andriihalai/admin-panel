@@ -21,7 +21,7 @@ export default function FilterForm({ handleSubmit }: IFilterForm) {
     }
 
     axios
-      .get(`${process.env.REACT_APP_API_URL}`, {
+      .get(`${process.env.REACT_APP_APARTMENTS_URL}`, {
         params: queryOptions,
       })
       .then((response) => {

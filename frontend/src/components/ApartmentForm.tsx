@@ -44,7 +44,7 @@ export default function ApartmentForm({ fetchApartments }: IApartmentForm) {
       setError("");
       console.log(process.env.HOST);
       await axios.post(
-        `${process.env.REACT_APP_API_URL}`,
+        `${process.env.REACT_APP_APARTMENTS_URL}`,
         formData
       );
       fetchApartments();
