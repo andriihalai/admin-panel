@@ -2,9 +2,10 @@
 
 ## Getting started
 
-### Backend
+## Backend
 
 #### Requirments:
+
 - Node.js
 - PostgresSQL
 
@@ -15,74 +16,83 @@ git clone git@github.com:andriihalai/admin-panel.git
 ```
 
 2. **Change directory into backend:**
+
 ```shell
 cd admin-panel/backend
 ```
 
 3. **Install all dependencies:**
+
 ```shell
 npm install
 ```
 
 4. **Set up environment variables.**
-  Create a ```.env``` file and add proper environmental variables:
+   Create a `.env` file and add proper environmental variables:
 
-  ```shell
-  DB_HOST='<host>' 
-  DB_PORT='<port>'
-  DB_USERNAME='<username>'
-  DB_PASSWORD='<password>'
-  DB_NAME='<dbname>'
-  APP_PORT='<port>'
-  ```
+```shell
+DB_HOST='<host>'
+DB_PORT='<port>'
+DB_USERNAME='<username>'
+DB_PASSWORD='<password>'
+DB_NAME='<dbname>'
+APP_PORT='<port>'
+```
 
-  You can find an example in the ```.env.example``` file:
+You can find an example in the `.env.example` file:
 
-  ```shell
-  # This is an example for a .env file
-  # DB type is postgres, check apartments.service.ts
-  DB_HOST='localhost'
-  DB_PORT=1111
-  DB_USERNAME='username'
-  DB_PASSWORD='mypassword'
-  DB_NAME='mydbname'
-  APP_PORT=8000
-  ```
+```shell
+# This is an example for a .env file
+# DB type is postgres, check apartments.service.ts
+DB_HOST='localhost'
+DB_PORT=1111
+DB_USERNAME='username'
+DB_PASSWORD='mypassword'
+DB_NAME='mydbname'
+APP_PORT=8000
+```
 
 5. **Seed database:**
+
 ```shell
 npm run seed
 ```
 
 6. **Start project:**
+
 ```shell
 npm run start:dev
 ```
 
 ## Api request examples
 
-- ```GET``` Get all apartments
+- `GET` Get all apartments
+
 ```
 http://localhost:8000/apartments
 ```
 
-- ```GET``` Get apartments with query params
+- `GET` Get apartments with query params
+
 ```
 http://localhost:8000/apartments?price=asc&&rooms=3
 ```
 
-- ```GET``` Get apartment by id
-**Note: apartment's id is an uuid**
+- `GET` Get apartment by id
+  **Note: apartment's id is an uuid**
+
 ```
 http://localhost:8000/apartments/228880ff-0fb9-48d2-99d2-744003fe211a
 ```
 
-- ```POST``` Create an apartment
+- `POST` Create an apartment
+
 ```
 http://localhost:8000/apartments
 ```
 
-**Body ```json```**
+**Body `json`**
+
 ```json
 {
   "rooms": 3,
@@ -92,16 +102,20 @@ http://localhost:8000/apartments
 }
 ```
 
-- ```DELETE``` Delete an apartment
+- `DELETE` Delete an apartment
+
 ```
 http://localhost:8000/apartments/228880ff-0fb9-48d2-99d2-744003fe211a
 ```
 
-- ```PUT``` Update an apartment
+- `PUT` Update an apartment
+
 ```
 http://localhost:8000/apartments/084f0bb5-d7b1-4f94-bbc8-f18097fe366b
 ```
-**Body ```json```**
+
+**Body `json`**
+
 ```json
 {
   "rooms": 1,
@@ -110,3 +124,36 @@ http://localhost:8000/apartments/084f0bb5-d7b1-4f94-bbc8-f18097fe366b
   "description": "temeritas dolor vulticulus traho vado vetus annus strues terra adficio absorbeo sustineo arma"
 }
 ```
+
+## Frontend
+
+1. **Clone project (skip this step if you have already cloned it):**
+
+   ```shell
+   git clone git@github.com:andriihalai/admin-panel.git
+   ```
+
+2. **Change into frontend directory**
+
+   ```shell
+   cd admin-panel/frontend
+   ```
+
+3. **Install all dependencies:**
+
+   ```shell
+   npm install
+   ```
+
+4. **Set up environment variables**
+   Create a `.env` file in the frontend directory and add proper path to your backend. For example:
+
+   ```shell
+   REACT_APP_APARTMENTS_URL=http://localhost:8000/apartments
+   ```
+
+5. **Start app**
+
+   ```shell
+   npm start
+   ```
