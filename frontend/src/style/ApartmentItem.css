@@ -23,3 +23,18 @@
 .btn:hover {
   cursor: pointer;
 }
+
+.desc-btn {
+  display: block;
+  color: #fff;
+  background-color: #0aa999;
+  border: 0.1em solid #f9c6cc;
+  border-radius: 0.4em;
+  padding: 0.4em 1em 0.4em 1em;
+  margin: 0.5em;
+  margin-left: 0;
+}
+
+.desc-btn:hover {
+  cursor: pointer;
+}

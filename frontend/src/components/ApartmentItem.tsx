@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./../style/ApartmentItem.css";
 import axios from "axios";
 
@@ -18,6 +19,16 @@ export default function ApartmentItem({
   description,
   fetchApartments,
 }: IApartmentItem) {
+  const [showDescription, setShowDescription] = useState(false);
+  const [buttonText, setButtonText] = useState("Show description");
+
+  const handleClick = () => {
+    setShowDescription(!showDescription);
+    if (buttonText === "Show description") setButtonText("Hide description");
+    else if (buttonText === "Hide description")
+      setButtonText("Show description");
+  };
+
   const handleDelete = async (e: any) => {
     await axios.delete(`http://localhost:8000/apartments/${id}`);
     await fetchApartments();
@@ -37,13 +48,18 @@ export default function ApartmentItem({
         <p>
           <b>Price</b>: {price}$
         </p>
-        {description && (
+        {showDescription && (
           <>
             <br />
             <p>
               <b>Description</b>: {description}
             </p>
           </>
+        )}
+        {description && (
+          <button className="desc-btn" onClick={handleClick}>
+            {buttonText}
+          </button>
         )}
       </div>
       <button className="btn" onClick={handleDelete}>
