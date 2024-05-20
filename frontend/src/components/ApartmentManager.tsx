@@ -8,7 +8,7 @@ export default function ApartmentManager() {
 
   const fetchApartments = () => {
     axios
-      .get("http://localhost:8000/apartments")
+      .get(`${process.env.REACT_APP_API_URL}`)
       .then((response) => setApartments(response.data))
       .catch((error) => console.error("Error fetching apartments:", error));
   };

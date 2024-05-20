@@ -30,7 +30,7 @@ export default function ApartmentItem({
   };
 
   const handleDelete = async (e: any) => {
-    await axios.delete(`http://localhost:8000/apartments/${id}`);
+    await axios.delete(`${process.env.REACT_APP_API_URL}/${id}`);
     await fetchApartments();
   };
 

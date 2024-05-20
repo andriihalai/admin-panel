@@ -42,7 +42,11 @@ export default function ApartmentForm({ fetchApartments }: IApartmentForm) {
         abortEarly: false,
       });
       setError("");
-      await axios.post("http://localhost:8000/apartments", formData);
+      console.log(process.env.HOST);
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}`,
+        formData
+      );
       fetchApartments();
 
       setFormData({
