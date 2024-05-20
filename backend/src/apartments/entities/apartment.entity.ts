@@ -16,8 +16,8 @@ export class Apartment {
   @Column()
   name: string;
 
-  @Factory((faker) => faker.number.int({ min: 100, max: 5000 }))
-  @Column()
+  @Factory((faker) => faker.number.float({ min: 100, max: 5000 }))
+  @Column('decimal', { precision: 10, scale: 2 })
   price: number;
 
   @Factory((faker) => faker.lorem.words({ min: 1, max: 150 }))

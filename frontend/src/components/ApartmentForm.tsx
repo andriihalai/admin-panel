@@ -89,9 +89,10 @@ export default function ApartmentForm({ fetchApartments }: IApartmentForm) {
           id="apartment-price"
           type="number"
           name="price"
-          placeholder="99.00"
+          step="0.01"
+          placeholder="0.01"
           value={formData.price}
-          min={1}
+          min={0.01}
           handleInput={handleInput}
           isRequired={true}
         />

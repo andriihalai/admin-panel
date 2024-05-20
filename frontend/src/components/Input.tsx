@@ -11,6 +11,7 @@ interface IInput {
   min?: number;
   isRequired?: boolean;
   maxLength?: number;
+  step?: string;
 }
 
 export default function Input({
@@ -24,6 +25,7 @@ export default function Input({
   min,
   isRequired,
   maxLength,
+  step,
 }: IInput) {
   return (
     <fieldset className="form-fieldset">
@@ -36,6 +38,7 @@ export default function Input({
         placeholder={placeholder}
         value={value}
         min={min}
+        step={step}
         onChange={handleInput}
         {...(isRequired ? { required: true } : {})}
         maxLength={maxLength}

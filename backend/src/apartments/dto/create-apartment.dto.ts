@@ -1,4 +1,10 @@
-import { IsInt, IsString, MaxLength, IsPositive } from 'class-validator';
+import {
+  IsInt,
+  IsString,
+  MaxLength,
+  IsPositive,
+  IsNumber,
+} from 'class-validator';
 
 import { Type } from 'class-transformer';
 
@@ -8,7 +14,7 @@ export class CreateApartmentDto {
   @Type(() => Number)
   rooms: number;
 
-  @IsInt()
+  @IsNumber()
   @Type(() => Number)
   @IsPositive()
   price: number;
